@@ -8,7 +8,7 @@ pipeline {
                         cd $WORKSPACE
                         git init
                         git remote remove origin
-                        git remote add origin http://vijayalakshmisaggam:Project20a@github.com/VijayaLakshmiSaggam/samplejavaapp.git
+                        git remote add origin http://VijayaLakshmiSaggam:Project20a@github.com/VijayaLakshmiSaggam/samplejavaapp.git
                         git pull origin master --allow-unrelated-histories
                         '''
                           }
