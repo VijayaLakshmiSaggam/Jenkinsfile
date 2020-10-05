@@ -1,9 +1,23 @@
-steps {
-// sh '''
-// cd $WORKSPACE
-// git init
-// git remote remove origin
-// git remote add origin http://$STASH_CRED_USR:$STASH_CRED_PSW@$STASH_IP:$STASH_PORT/scm/llaesb/automationtesting.git
-// git pull origin master --allow-unrelated-histories
-// '''
-// }
+pipeline {
+	  agent any
+	  stages {
+	    stage('Clone sources') {
+	           git url: 'https://github.com/VijayaLakshmiSaggam/samplejavaapp'
+	                           }
+	    stage('Compile') {
+	      steps {
+	        sh script: 'mvn clean compile'
+	            }
+	                     }
+	    stage('Test') {
+	      steps {
+	        sh script: 'mvn test'
+	            }
+	                     }
+	    stage('Package') {
+	      steps {
+	        sh script: 'mvn package'
+	            }
+	                     }
+	         }
+	         }
